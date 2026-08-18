@@ -1,8 +1,9 @@
 ---
 import { site } from '../data/site';
 
-// Led by the situation the homeowner is already in, not by the trade
-// name for the work. Four they ring about most, then the rest.
+// All eight are verified work and read as one range. The four that
+// prompt most calls lead; the other four follow at row scale, not as
+// a footnote — same list, same standard.
 const main = [
   {
     trigger: 'When the board keeps tripping',
@@ -38,7 +39,11 @@ const also = [
     <p class="t-label text-ink-soft">
       What we do
     </p>
-    <h2 class="t-display t-h2 mt-4 max-w-[16ch]">Most people ring about one of these four.</h2>
+    <h2 class="t-display t-h2 mt-4 max-w-[18ch]">From a full rewire to a single socket.</h2>
+    <p class="mt-5 max-w-[52ch] text-[1.0625rem] text-ink-soft">
+      Eight kinds of work, one standard. The four that prompt most calls come first;
+      the rest of the range follows.
+    </p>
 
     <div class="mt-10 md:mt-14">
       {main.map((item) => (
@@ -52,17 +57,14 @@ const also = [
       ))}
     </div>
 
-    <div class="mt-12 md:mt-16">
-      <p class="t-label text-ink-faint">And the rest of it</p>
-      <div class="mt-6 grid gap-x-10 gap-y-7 sm:grid-cols-2 lg:grid-cols-4">
-        {also.map((item) => (
-          <div>
-            <span class="chip bg-ink" aria-hidden="true"></span>
-            <h3 class="mt-3 text-[1rem] font-bold leading-snug text-ink">{item.title}</h3>
-            <p class="mt-1.5 text-[0.9375rem] leading-relaxed text-ink-soft">{item.body}</p>
-          </div>
-        ))}
-      </div>
+    <p class="t-label mt-10 text-ink-soft md:mt-12">The rest of the range</p>
+    <div class="mt-4">
+      {also.map((item) => (
+        <article class="svc-row !py-5 grid gap-2 md:grid-cols-[1fr_1.15fr] md:gap-10 md:!py-6">
+          <h3 class="t-display text-[1.375rem] !leading-none text-ink md:text-[1.625rem]">{item.title}</h3>
+          <p class="text-[1.0625rem] leading-relaxed text-ink-soft">{item.body}</p>
+        </article>
+      ))}
     </div>
 
     <p class="mt-12 text-[1.0625rem] text-ink-soft">
