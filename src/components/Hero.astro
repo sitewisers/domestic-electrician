@@ -4,38 +4,38 @@ import { site } from '../data/site';
 import heroPhoto from '../assets/photos/hero-exterior-lights.jpg';
 ---
 <section id="top" class="bg-paper">
-  <div class="shell grid items-center gap-10 pb-12 pt-10 md:pb-16 md:pt-14 lg:grid-cols-[1fr_1.1fr] lg:gap-16 lg:pb-20 lg:pt-16">
-    <div>
-      <p class="t-label text-copper">
-        {site.town} &middot; {site.certification} &middot; Ltd since {site.tradingSinceYear}
-      </p>
+  <div class="shell pt-10 md:pt-16">
+    <p class="t-label flex items-center gap-2.5 text-ink-soft">
+      <span class="chip bg-live" aria-hidden="true"></span>
+      {site.town} &middot; {site.certification} &middot; Ltd since {site.tradingSinceYear}
+    </p>
 
-      <h1 class="t-h1 mt-5 max-w-[18ch]">Every circuit accounted for.</h1>
+    <h1 class="t-display t-h1 mt-5 max-w-[12ch]">Every circuit accounted for.</h1>
 
-      <p class="t-lead mt-6 max-w-[46ch] text-slate">
+    <div class="mt-8 grid gap-8 md:grid-cols-[1.2fr_1fr] md:items-end">
+      <p class="t-lead max-w-[44ch] text-ink-soft">
         {site.name} is a NICEIC approved electrical company covering {site.town} and about
         four miles around it. Fuse boards, rewires, EICRs and fault-finding &mdash; and the
         small jobs most people struggle to get anyone out for.
       </p>
 
-      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <a href={site.phoneHref} class="btn btn--primary">Call {site.phoneDisplay}</a>
-        <a href={site.whatsappHref} rel="noopener" class="btn btn--secondary">Message on WhatsApp</a>
+      <div class="flex flex-col gap-3 sm:flex-row md:justify-end">
+        <a href={site.phoneHref} class="btn btn--live !text-[1.0625rem]">Call {site.phoneDisplay}</a>
+        <a href={site.whatsappHref} rel="noopener" class="btn btn--ghost">WhatsApp</a>
       </div>
-
-      <p class="mt-5 text-[0.9375rem] text-slate-light">Emergency callouts covered.</p>
     </div>
+  </div>
 
-    <div class="photo-frame">
-      <Image
-        src={heroPhoto}
-        alt="Outdoor wall lights fitted to the front of a house in Fareham, lit at dusk"
-        widths={[700, 1200]}
-        sizes="(min-width: 1024px) 38rem, 92vw"
-        loading="eager"
-        class="photo"
-        style="aspect-ratio: 1200 / 710"
-      />
-    </div>
+  <!-- The photo runs full-bleed under the headline: their own finished
+       work, lit — the product itself, not decoration. -->
+  <div class="mt-10 md:mt-14">
+    <Image
+      src={heroPhoto}
+      alt="Outdoor wall lights fitted to the front of a house in Fareham, lit at dusk"
+      widths={[800, 1400, 2000]}
+      sizes="100vw"
+      loading="eager"
+      class="block h-[46vh] min-h-[300px] w-full object-cover md:h-[56vh]"
+    />
   </div>
 </section>

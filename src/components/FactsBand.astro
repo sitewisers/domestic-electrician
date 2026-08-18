@@ -1,0 +1,26 @@
+---
+import { site } from '../data/site';
+
+/**
+ * The four verified facts on a full-bleed signal-yellow band —
+ * the stripe on the earth wire, carrying the safety facts.
+ * Stated loud and plain; each one is checkable.
+ */
+const { trustpilot, google } = site.ratings;
+const facts = [
+  { big: site.certification, small: 'Assessed against BS 7671' },
+  { big: `${trustpilot.score} Trustpilot`, small: `From roughly ${trustpilot.approxReviews} reviews` },
+  { big: `${google.score} Google`, small: 'Across Google reviews' },
+  { big: `${site.town} + ${site.radiusMiles} miles`, small: `Ltd company since ${site.tradingSinceYear}` },
+];
+---
+<section class="bg-signal" aria-label="Credentials">
+  <div class="shell grid grid-cols-2 gap-x-6 gap-y-6 py-8 md:grid-cols-4 md:py-9">
+    {facts.map((fact) => (
+      <div>
+        <p class="t-display text-[1.375rem] !leading-tight text-ink md:text-[1.625rem]">{fact.big}</p>
+        <p class="mt-1 text-[0.8125rem] font-medium text-ink/70">{fact.small}</p>
+      </div>
+    ))}
+  </div>
+</section>

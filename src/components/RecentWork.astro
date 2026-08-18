@@ -21,31 +21,37 @@ const shots = [
   { src: socketTest, alt: 'A socket being tested with a multifunction tester during an inspection', caption: 'Socket testing during an inspection' },
 ];
 ---
-<section class="band bg-mist" aria-labelledby="work-heading">
-  <div class="shell">
-    <p class="t-label text-copper">Recent work</p>
-    <h2 id="work-heading" class="t-h2 mt-4 max-w-[24ch]">Some of what the last few jobs looked like.</h2>
+<section class="band bg-paper !pt-0" aria-labelledby="work-heading">
+  <div class="cable-run" aria-hidden="true"></div>
+  <div class="shell mt-12 md:mt-16">
+    <p class="t-label flex items-center gap-2.5 text-ink-soft">
+      <span class="chip bg-earth" aria-hidden="true"></span>
+      Recent work
+    </p>
+    <h2 id="work-heading" class="t-display t-h2 mt-4 max-w-[18ch]">Some of what the last few jobs looked like.</h2>
+  </div>
 
-    <div class="mt-10 grid gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-3">
-      {shots.map((shot) => (
-        <figure>
-          <div class="photo-frame bg-paper">
+  <div class="mt-9 md:mt-12">
+    <div class="shell">
+      <div class="strip" tabindex="0" role="group" aria-label="Photographs of recent completed work — scrolls sideways">
+        {shots.map((shot) => (
+          <figure>
             <Image
               src={shot.src}
               alt={shot.alt}
-              widths={[480, 900]}
-              sizes="(min-width: 1024px) 24rem, (min-width: 640px) 46vw, 92vw"
+              widths={[520, 900]}
+              sizes="(min-width: 1024px) 23rem, (min-width: 640px) 46vw, 82vw"
               loading="lazy"
-              class="photo"
-              style="aspect-ratio: 16 / 10"
             />
-          </div>
-          <figcaption class="mt-2.5 text-[0.875rem] text-slate-light">{shot.caption}</figcaption>
-        </figure>
-      ))}
+            <figcaption class="mt-2.5 text-[0.9375rem] font-semibold text-ink">{shot.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
     </div>
+  </div>
 
-    <p class="mt-8 text-[0.875rem] text-slate-light">
+  <div class="shell">
+    <p class="mt-6 text-[0.875rem] text-ink-faint">
       Photographs of the company&rsquo;s own completed work. No stock photography.
     </p>
   </div>

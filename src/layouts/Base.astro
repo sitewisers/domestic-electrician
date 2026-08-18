@@ -26,73 +26,76 @@ const nav = [
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-  href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600;700&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Anton&family=Rubik:wght@400;500;600;700&display=swap"
   rel="stylesheet"
 />
 </head>
 <body class="bg-paper pb-[4.5rem] md:pb-0">
 
-<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-3 focus:rounded-md focus:bg-copper focus:px-4 focus:py-2 focus:text-white">Skip to content</a>
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:m-3 focus:rounded focus:bg-ink focus:px-4 focus:py-2 focus:text-white">Skip to content</a>
 
-<header class="sticky top-0 z-40 border-b border-mist-deep bg-paper/95 backdrop-blur-md">
-  <div class="shell flex h-[4.5rem] items-center justify-between gap-6 lg:h-20">
+<header class="sticky top-0 z-40 bg-paper/95 backdrop-blur-md">
+  <div class="shell flex h-[4.25rem] items-center justify-between gap-5 lg:h-[4.75rem]">
     <a href="#top" class="shrink-0" aria-label={`${site.name}, back to top`}><Wordmark /></a>
 
-    <nav class="hidden items-center gap-8 lg:flex" aria-label="Sections">
+    <nav class="hidden items-center gap-7 lg:flex" aria-label="Sections">
       {nav.map((item) => (
-        <a href={item.href} class="text-[0.9375rem] font-medium text-slate transition-colors hover:text-navy">{item.label}</a>
+        <a href={item.href} class="text-[0.9375rem] font-semibold text-ink-soft transition-colors hover:text-ink">{item.label}</a>
       ))}
     </nav>
 
     <div class="flex items-center gap-3 sm:gap-5">
-      <a href={site.phoneHref} class="t-tel hidden text-[1.0625rem] text-navy transition-colors hover:text-copper sm:block">{site.phoneDisplay}</a>
-      <a href={site.phoneHref} class="btn btn--primary !px-5 !py-2.5 !text-[0.9375rem]">Call</a>
+      <a href={site.phoneHref} class="hidden text-[1.0625rem] font-bold tracking-tight text-ink transition-colors hover:text-live sm:block">{site.phoneDisplay}</a>
+      <a href={site.phoneHref} class="btn btn--live !px-5 !py-2.5 !text-[0.9375rem]">Call</a>
     </div>
   </div>
 
-  <!-- Section links for phones and tablets, where the header row has no room -->
-  <nav class="border-t border-mist-deep bg-mist lg:hidden" aria-label="Sections">
+  <!-- Section links for phones, where the header row has no room -->
+  <nav class="border-t border-rule bg-paper lg:hidden" aria-label="Sections">
     <div class="shell flex h-10 items-center gap-6 overflow-x-auto">
       {nav.map((item) => (
-        <a href={item.href} class="whitespace-nowrap text-[0.8125rem] font-medium text-slate transition-colors hover:text-navy">{item.label}</a>
+        <a href={item.href} class="whitespace-nowrap text-[0.8125rem] font-semibold text-ink-soft transition-colors hover:text-ink">{item.label}</a>
       ))}
     </div>
   </nav>
+
+  <!-- The header sits on the cable: the run that threads the whole page. -->
+  <div class="cable-run--thin" aria-hidden="true"></div>
 </header>
 
 <main id="main"><slot /></main>
 
-<footer class="bg-navy">
-  <div class="shell py-12 md:py-16">
+<footer class="bg-ink">
+  <div class="shell py-12 md:py-14">
     <div class="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
       <div class="max-w-xs">
         <Wordmark tone="dark" />
-        <p class="mt-5 inline-flex items-center gap-2 text-[0.9375rem] font-semibold text-white">
-          <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" class="shrink-0"><path d="M6.2 11.3 3.4 8.5l1.1-1.1 1.7 1.7 5-5 1.1 1.1z" fill="#6FBF95"></path></svg>
+        <p class="mt-5 inline-flex items-center gap-2.5 text-[0.9375rem] font-bold text-white">
+          <span class="chip" style="background: linear-gradient(90deg, #2E8B47 0 60%, #F5C400 60%)" aria-hidden="true"></span>
           {site.certification}
         </p>
-        <p class="mt-3 text-[0.9375rem] leading-relaxed text-white/65">
+        <p class="mt-3 text-[0.9375rem] leading-relaxed text-white/60">
           Domestic electrical work in {site.town} and roughly four miles around it.
         </p>
       </div>
 
       <div class="flex flex-col gap-3">
-        <span class="t-label text-white/55">Get in touch</span>
-        <a href={site.phoneHref} class="t-tel text-lg text-white hover:text-white/80">{site.phoneDisplay}</a>
-        <a href={`mailto:${site.email}`} class="text-[0.9375rem] text-white/75 hover:text-white">{site.email}</a>
-        <a href={site.whatsappHref} rel="noopener" class="text-[0.9375rem] text-white/75 hover:text-white">WhatsApp</a>
+        <span class="t-label text-white/50">Get in touch</span>
+        <a href={site.phoneHref} class="text-lg font-bold text-white hover:text-signal">{site.phoneDisplay}</a>
+        <a href={`mailto:${site.email}`} class="text-[0.9375rem] text-white/70 hover:text-white">{site.email}</a>
+        <a href={site.whatsappHref} rel="noopener" class="text-[0.9375rem] text-white/70 hover:text-white">WhatsApp</a>
       </div>
 
       <nav class="flex flex-col gap-3" aria-label="Footer">
-        <span class="t-label text-white/55">Sections</span>
+        <span class="t-label text-white/50">Sections</span>
         {nav.map((item) => (
-          <a href={item.href} class="text-[0.9375rem] text-white/75 transition-colors hover:text-white">{item.label}</a>
+          <a href={item.href} class="text-[0.9375rem] text-white/70 transition-colors hover:text-white">{item.label}</a>
         ))}
       </nav>
     </div>
 
     <div class="mt-12 border-t border-white/15 pt-6">
-      <p class="max-w-2xl text-[0.8125rem] leading-relaxed text-white/50">
+      <p class="max-w-2xl text-[0.8125rem] leading-relaxed text-white/45">
         A design concept prepared by Sitewisers for {site.name}. Not the company&rsquo;s official website.
       </p>
     </div>
@@ -100,9 +103,9 @@ const nav = [
 </footer>
 
 <!-- Thumb-reach bar. Most enquiries here arrive from a phone, mid-problem. -->
-<div class="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-px border-t border-mist-deep bg-mist-deep md:hidden">
-  <a href={site.phoneHref} class="btn btn--primary !rounded-none !py-4">Call</a>
-  <a href={site.whatsappHref} rel="noopener" class="btn !rounded-none !border-transparent !bg-paper !py-4 !text-navy">WhatsApp</a>
+<div class="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 md:hidden">
+  <a href={site.phoneHref} class="btn btn--live !rounded-none !py-4">Call</a>
+  <a href={site.whatsappHref} rel="noopener" class="btn btn--signal !rounded-none !py-4">WhatsApp</a>
 </div>
 
 </body>

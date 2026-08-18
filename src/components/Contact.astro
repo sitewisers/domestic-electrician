@@ -9,46 +9,48 @@ const readyList = [
   'Whether anything is tripping, and what you were using when it went.',
 ];
 ---
-<section id="contact" class="band bg-paper">
+<section id="contact" class="band bg-ink">
   <div class="shell">
-    <div class="rounded-2xl border border-mist-deep bg-mist p-7 md:p-12">
-      <div class="grid gap-10 md:grid-cols-2 md:gap-14">
-        <div>
-          <p class="t-label text-copper">Get it looked at</p>
-          <h2 class="t-h2 mt-4">Ring us.</h2>
+    <p class="t-label flex items-center gap-2.5 text-white/60">
+      <span class="chip bg-signal" aria-hidden="true"></span>
+      Get it looked at
+    </p>
+    <h2 class="t-display t-h2 mt-4 !text-white">Ring us.</h2>
 
-          <a
-            href={site.phoneHref}
-            class="t-tel mt-6 block font-extrabold text-navy transition-colors hover:text-copper"
-            style="font-size: clamp(1.875rem, 5.5vw, 2.75rem); letter-spacing: -0.02em"
-          >{site.phoneDisplay}</a>
+    <a
+      href={site.phoneHref}
+      class="t-display mt-6 block !text-signal transition-colors hover:!text-white"
+      style="font-size: clamp(2.75rem, 11vw, 6.5rem); letter-spacing: 0.01em"
+    >{site.phoneDisplay}</a>
 
-          <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a href={site.whatsappHref} rel="noopener" class="btn btn--primary">Message on WhatsApp</a>
-            <a href={`mailto:${site.email}`} class="btn btn--secondary">Email us</a>
-          </div>
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+      <a href={site.whatsappHref} rel="noopener" class="btn btn--signal">Message on WhatsApp</a>
+      <a href={`mailto:${site.email}`} class="btn btn--onink">Email us</a>
+    </div>
 
-          <p class="mt-7 max-w-[40ch] text-[1.0625rem] leading-relaxed text-slate">
-            {site.town} and roughly four miles around it &mdash; taking in places like
-            Titchfield, Stubbington, Portchester, Park Gate and Warsash. If you are not sure
-            whether you are inside that, ring and ask.
-          </p>
-        </div>
+    <div class="mt-14 grid gap-10 border-t border-white/15 pt-10 md:grid-cols-2 md:gap-16">
+      <div>
+        <p class="t-label text-white/50">Where we work</p>
+        <p class="mt-4 max-w-[40ch] text-[1.0625rem] leading-relaxed text-white/80">
+          {site.town} and roughly four miles around it &mdash; taking in places like
+          Titchfield, Stubbington, Portchester, Park Gate and Warsash. If you are not sure
+          whether you are inside that, ring and ask.
+        </p>
+      </div>
 
-        <div class="rounded-xl border border-mist-deep bg-paper p-6 md:p-8">
-          <p class="t-label text-slate-light">Have this ready when you call</p>
-          <ul class="mt-5 space-y-4">
-            {readyList.map((item) => (
-              <li class="flex gap-3 text-[1.0625rem] leading-relaxed text-slate">
-                <svg width="17" height="17" viewBox="0 0 16 16" aria-hidden="true" class="mt-1 shrink-0"><path d="M6.2 11.3 3.4 8.5l1.1-1.1 1.7 1.7 5-5 1.1 1.1z" fill="#2F6B4F"></path></svg>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-          <p class="mt-6 text-[0.9375rem] text-slate-light">
-            Emergency callouts covered. Email is {site.email}.
-          </p>
-        </div>
+      <div>
+        <p class="t-label text-white/50">Have this ready when you call</p>
+        <ul class="mt-4 space-y-3">
+          {readyList.map((item) => (
+            <li class="flex gap-3 text-[1.0625rem] leading-relaxed text-white/80">
+              <span class="chip mt-2 !h-2 !w-2 bg-signal" aria-hidden="true"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-5 text-[0.9375rem] text-white/55">
+          Emergency callouts covered. Email is {site.email}.
+        </p>
       </div>
     </div>
   </div>

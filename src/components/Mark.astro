@@ -1,6 +1,6 @@
 ---
 interface Props { size?: number; class?: string; tile?: string; glyph?: string }
-const { size = 36, class: className = '', tile = '#B4551F', glyph = '#FFFFFF' } = Astro.props;
+const { size = 36, class: className = '', tile = '#7A4A1F', glyph = '#FFFFFF' } = Astro.props;
 
 /**
  * Logo mark — the earth symbol.
@@ -14,8 +14,9 @@ const { size = 36, class: className = '', tile = '#B4551F', glyph = '#FFFFFF' } 
  * arbitrary standard ratio, and every terminal is rounded, so it reads
  * as a drawn mark rather than a schematic glyph lifted off a drawing.
  *
- * White on copper measures 4.89:1. Copper on navy was tried and rejected
- * at 2.95:1 — it muddied below about 24px.
+ * The tile is the live-conductor brown from the Live/Neutral/Earth
+ * system — the earth symbol on the live colour, white glyph for small-size
+ * legibility. Geometry is fixed; only the tile colour tracks the palette.
  *
  * Geometry is mirrored in public/favicon.svg; change both together.
  */

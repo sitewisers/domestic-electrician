@@ -2,18 +2,16 @@
 import Mark from './Mark.astro';
 interface Props { tone?: 'light' | 'dark'; class?: string }
 const { tone = 'light', class: className = '' } = Astro.props;
-// Mark + wordmark lockup. The mark carries the copper; the type stays
-// navy on light and white on dark so the pairing works in both places.
-const name = tone === 'light' ? '#132A43' : '#FFFFFF';
-const meta = tone === 'light' ? '#7B8896' : 'rgba(255,255,255,.65)';
+const name = tone === 'light' ? '#1A1511' : '#FFFFFF';
+const meta = tone === 'light' ? '#8A827B' : 'rgba(255,255,255,.6)';
 ---
 <span class={`inline-flex items-center gap-2.5 ${className}`}>
   <Mark size={38} />
   <span class="leading-none">
     <span
-      class="block text-[0.9375rem] font-extrabold uppercase leading-none tracking-[-0.01em] sm:text-base"
+      class="block text-[1.0625rem] uppercase leading-none tracking-[0.01em] sm:text-[1.1875rem]"
       style={`font-family:var(--font-display);color:${name}`}
     >Domestic Electrician</span>
-    <span class="t-label mt-1.5 block text-[0.5625rem]" style={`color:${meta}`}>Ltd &middot; Fareham</span>
+    <span class="t-label mt-1 block text-[0.5625rem]" style={`color:${meta}`}>Ltd &middot; Fareham</span>
   </span>
 </span>

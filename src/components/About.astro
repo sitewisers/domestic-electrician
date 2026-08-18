@@ -11,28 +11,32 @@ const facts = [
   { k: 'Work', v: 'Domestic electrical' },
 ];
 ---
-<section id="about" class="band bg-mist">
-  <div class="shell grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
-    <div>
-      <p class="t-label text-copper">About</p>
-      <h2 class="t-h2 mt-4 max-w-[18ch]">Who you are actually ringing.</h2>
+<section id="about" class="band bg-paper">
+  <div class="shell">
+    <p class="t-label flex items-center gap-2.5 text-ink-soft">
+      <span class="chip bg-live" aria-hidden="true"></span>
+      About
+    </p>
+    <h2 class="t-display t-h2 mt-4 max-w-[14ch]">Who you are actually ringing.</h2>
 
-      <div class="mt-7 max-w-[58ch] space-y-5 text-[1.0625rem] leading-relaxed text-slate md:text-[1.125rem]">
-        <p>
-          {site.name} has traded as a limited company in {site.town} since {site.tradingSince}.
-          It is run by {site.owner}, and the work is domestic electrical: design, installation,
-          testing and inspection across {site.town} and roughly four miles around it.
-        </p>
-        <p>
-          Electrical work is one of the few jobs in a house where you cannot check the
-          quality yourself once it is finished. The wiring goes back in the wall and you
-          take the rest on trust. So the certificate, the approval standing behind it and
-          the years of trading are not badges &mdash; they are the only things you have to go on.
-          They are all on this page, and you can check every one of them.
-        </p>
-      </div>
+    <div class="mt-9 grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
+      <div>
+        <div class="max-w-[58ch] space-y-5 text-[1.0625rem] leading-relaxed text-ink-soft md:text-[1.125rem]">
+          <p>
+            {site.name} has traded as a limited company in {site.town} since {site.tradingSince}.
+            It is run by {site.owner}, and the work is domestic electrical: design, installation,
+            testing and inspection across {site.town} and roughly four miles around it.
+          </p>
+          <p>
+            Electrical work is one of the few jobs in a house where you cannot check the
+            quality yourself once it is finished. The wiring goes back in the wall and you
+            take the rest on trust. So the certificate, the approval standing behind it and
+            the years of trading are not badges &mdash; they are the only things you have to go on.
+            They are all on this page, and you can check every one of them.
+          </p>
+        </div>
 
-      <!-- PLACEHOLDER: the company's own account of how it works, plus a
+        <!-- PLACEHOLDER: the company's own account of how it works, plus a
            real photograph on a job. Nothing here is invented, so this
            section stays deliberately short. Two or three sentences about
            why the company started and what it will not cut corners on
@@ -43,35 +47,34 @@ const facts = [
            own words later, drop them in as a short quote attributed to
            him inside that company story rather than rewriting this as a
            personal introduction. -->
-    </div>
 
-    <div class="lg:pt-2">
-      <!-- Real photograph from the company's own published work. We cannot
-           confirm which person this is, so the caption and alt text name
-           neither him nor a service we have not verified. -->
-      <figure>
-        <div class="photo-frame bg-paper">
+        <dl class="mt-10 border-t-2 border-ink">
+          {facts.map((fact) => (
+            <div class="flex items-baseline justify-between gap-4 border-b border-rule py-3">
+              <dt class="t-label text-ink-faint">{fact.k}</dt>
+              <dd class="text-right text-[1rem] font-bold text-ink">{fact.v}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <div>
+        <!-- Real photograph from the company's own published work. We cannot
+             confirm which person this is, so the caption and alt text name
+             neither him nor a service we have not verified. -->
+        <figure>
           <Image
             src={onSite}
             alt="An electrician on site fitting an outdoor unit"
             widths={[600, 1200]}
             sizes="(min-width: 1024px) 30rem, 92vw"
             loading="lazy"
-            class="photo"
+            class="block w-full object-cover"
             style="aspect-ratio: 2 / 1"
           />
-        </div>
-        <figcaption class="mt-2.5 text-[0.875rem] text-slate-light">On site</figcaption>
-      </figure>
-
-      <dl class="mt-8 divide-y divide-mist-deep rounded-xl border border-mist-deep bg-paper">
-        {facts.map((fact) => (
-          <div class="flex items-baseline justify-between gap-4 px-5 py-3.5">
-            <dt class="t-label text-slate-light">{fact.k}</dt>
-            <dd class="text-right text-[0.9375rem] font-semibold text-navy">{fact.v}</dd>
-          </div>
-        ))}
-      </dl>
+          <figcaption class="mt-2.5 text-[0.9375rem] font-semibold text-ink">On site</figcaption>
+        </figure>
+      </div>
     </div>
   </div>
 </section>
