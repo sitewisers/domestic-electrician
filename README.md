@@ -1,4 +1,4 @@
-# Domestic Electrician Ltd — website concept
+# Domestic Electrician Ltd: website concept
 
 A speculative design concept prepared by Sitewisers for Domestic Electrician Ltd,
 a NICEIC approved electrician working in Fareham. Not the company's official
@@ -8,10 +8,10 @@ Live: https://sitewisers.github.io/domestic-electrician/
 
 ## What is here
 
-- `src/` — Astro + Tailwind source for the page
-- `src/assets/photos/` — the photographs used on the page, cropped from the
+- `src/`: Astro + Tailwind source for the page
+- `src/assets/photos/`: the photographs used on the page, cropped from the
   company's own public Facebook posts (see Photographs below)
-- `index.html`, `_astro/`, `favicon.svg`, `robots.txt` — the built site, served
+- `index.html`, `_astro/`, `favicon.svg`, `robots.txt`: the built site, served
   by GitHub Pages from the repository root (same setup as the Avenue Dental Care
   concept). `.nojekyll` is required: Jekyll would otherwise skip `_astro/`
 
@@ -24,12 +24,12 @@ stated as fact.
 - The NICEIC trademark is not reproduced; "NICEIC Approved" is set in the site's
   own type
 - Trustpilot and Google ratings are used as aggregates only, described as
-  approximate. Real review text is not reproduced — there is a commented
-  placeholder in `src/components/Trust.astro` for 2–3 real reviews once we have
+  approximate. Real review text is not reproduced. There is a commented
+  placeholder in `src/components/Trust.astro` for two or three real reviews once we have
   the client relationship
 - No EV charger installation, because that service is unconfirmed
 - Photographs are the company's own, taken from their public Facebook page.
-  Nothing is stock or generated — one clearly-stock image on their page was
+  Nothing is stock or generated. One clearly-stock image on their page was
   rejected. Captions and alt text never name the person in a photo, because
   we cannot confirm who it is, and never imply a service outside the verified
   list. The About section still marks where Lee's own words belong
