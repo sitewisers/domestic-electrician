@@ -35,8 +35,7 @@ const also = [
 ---
 <section id="services" class="band bg-paper">
   <div class="shell">
-    <p class="t-label flex items-center gap-2.5 text-ink-soft">
-      <span class="chip bg-neutral-blue" aria-hidden="true"></span>
+    <p class="t-label text-ink-soft">
       What we do
     </p>
     <h2 class="t-display t-h2 mt-4 max-w-[16ch]">Most people ring about one of these four.</h2>
@@ -56,9 +55,9 @@ const also = [
     <div class="mt-12 md:mt-16">
       <p class="t-label text-ink-faint">And the rest of it</p>
       <div class="mt-6 grid gap-x-10 gap-y-7 sm:grid-cols-2 lg:grid-cols-4">
-        {also.map((item, i) => (
+        {also.map((item) => (
           <div>
-            <span class={`chip ${['bg-live','bg-neutral-blue','bg-earth','bg-signal'][i % 4]}`} aria-hidden="true"></span>
+            <span class="chip bg-ink" aria-hidden="true"></span>
             <h3 class="mt-3 text-[1rem] font-bold leading-snug text-ink">{item.title}</h3>
             <p class="mt-1.5 text-[0.9375rem] leading-relaxed text-ink-soft">{item.body}</p>
           </div>
