@@ -7,6 +7,8 @@
 export const site = {
   name: 'Domestic Electrician Ltd',
   shortName: 'Domestic Electrician',
+  // Used for the single supporting mention in the About section only.
+  // Site copy speaks as the company, not as Lee personally.
   owner: 'Lee',
   tradingSince: 'January 2018',
   tradingSinceYear: 2018,
