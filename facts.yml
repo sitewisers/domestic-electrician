@@ -1,0 +1,61 @@
+# Verified facts for Domestic Electrician Ltd.
+# Every client-facing claim must trace to this file. The honesty gate and
+# `sitewisers lint` read this file FIRST, before src/data/site.ts, so any
+# verified number used in copy must appear here.
+
+business: Domestic Electrician Ltd
+verified: 2026-08-18
+
+website:
+  exists: false
+  domain: domesticelectrician.com
+  behaviour: >
+    301 redirect to https://www.facebook.com/The.Domestic.Electrician on
+    every path, including robots.txt. Served by Squarespace domain
+    forwarding. There is no website.
+  method: >
+    Followed the redirect chain on 18 Aug 2026: curl -sIL returned a
+    single HTTP 301 with Server: Squarespace and Location pointing at the
+    Facebook page. Confirmed for / and /robots.txt.
+
+corrections:
+  - date: 2026-08-18
+    falsified: >
+      "Existing site blocked from crawlers, near-zero Google visibility."
+      There is no existing site to be blocked. The domain forwards to
+      Facebook.
+
+contact:
+  phone: "07784 303202"
+  email: mail@domesticelectrician.com
+  source: Trustpilot listing, verified separately from the domain.
+
+ratings:
+  trustpilot:
+    score: 4.9
+    reviews_approx: 83
+  google:
+    score: 5.0
+  source: As published on Trustpilot and Google, checked 18 Aug 2026.
+
+certification: NICEIC Approved
+trading_since: January 2018
+company:
+  companies_house_number: "11147230"
+  name_registered: DOMESTIC ELECTRICIAN
+  incorporated: 12 January 2018
+  status: active
+  source: Companies House public record, checked 18 Aug 2026.
+
+service_area: Fareham plus roughly 4 miles
+services:
+  - electrical design, installation, testing and inspection
+  - consumer unit and fuse board upgrades
+  - full and partial rewires
+  - EICRs and remedial work
+  - fault-finding and emergency callouts
+  - appliance, cooker and oven wiring
+  - lighting, including garden and track lighting
+  - socket and switch installation
+excluded:
+  - EV charger installation (unconfirmed, never list it)
