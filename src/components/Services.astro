@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import { site } from '../data/site';
+import exteriorLights from '../assets/photos/exterior-wall-lights.jpg';
 
 // Led by the situation the homeowner is already in, not by the trade
 // name for the work. Four they ring about most, then the rest.
@@ -60,6 +62,19 @@ const also = [
         ))}
       </div>
     </div>
+
+    <figure class="mt-14">
+      <Image
+        src={exteriorLights}
+        alt="Outdoor wall lights fitted to the front of a house, lit at dusk"
+        widths={[800, 1200]}
+        sizes="(min-width: 1280px) 71rem, 92vw"
+        loading="lazy"
+        class="w-full rounded-[4px] border border-ink/10 object-cover"
+        style="aspect-ratio: 16 / 9"
+      />
+      <figcaption class="t-label mt-4 text-ink-soft/70">Outside lighting, wired and fitted</figcaption>
+    </figure>
 
     <p class="t-label mt-14 text-ink-soft/75">
       Not sure which one you need? Ring {site.owner} on{' '}<a href={site.phoneHref} class="link-underline text-copper">{site.phoneDisplay}</a> and describe what is happening.

@@ -2,3 +2,6 @@ node_modules/
 dist/
 .astro/
 .DS_Store
+
+# raw Facebook downloads; cropped versions live in src/assets/photos
+photos-raw/

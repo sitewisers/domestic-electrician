@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import { site } from '../data/site';
+import onSite from '../assets/photos/on-site-outdoor-unit.jpg';
 
 const facts = [
   { k: 'Trading since', v: site.tradingSince },
@@ -28,6 +30,22 @@ const facts = [
           They are all on this page, and you can check every one of them.
         </p>
       </div>
+
+      <!-- Real photograph from the company's own published work. We cannot
+           confirm which person this is, so the caption and alt text name
+           neither him nor a service we have not verified. -->
+      <figure class="mt-10">
+        <Image
+          src={onSite}
+          alt="An electrician on site fitting an outdoor unit"
+          widths={[600, 1200]}
+          sizes="(min-width: 1024px) 36rem, 92vw"
+          loading="lazy"
+          class="w-full rounded-[4px] border border-ink/10 object-cover"
+          style="aspect-ratio: 1200 / 630"
+        />
+        <figcaption class="t-label mt-4 text-ink-soft/70">On site</figcaption>
+      </figure>
 
       <!-- PLACEHOLDER: Lee's own words and a photo of him on a job.
            Nothing here is invented, so this section stays deliberately

@@ -1,6 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import { site } from '../data/site';
 import ConsumerUnit from './ConsumerUnit.astro';
+import labelledBoard from '../assets/photos/consumer-unit-labelled.jpg';
 ---
 <section id="top" class="relative overflow-hidden bg-graphite">
   <div class="shell relative grid items-center gap-14 pb-20 pt-12 md:pb-28 md:pt-20 lg:grid-cols-[1fr_1.08fr] lg:gap-14 lg:pb-24 lg:pt-24">
@@ -36,6 +38,22 @@ import ConsumerUnit from './ConsumerUnit.astro';
         aria-hidden="true"
       ></div>
       <div class="relative z-10"><ConsumerUnit /></div>
+
+      <!-- The graphic above names trust facts as circuit labels. This is a
+           board the company actually installed, labelled the same way. The
+           photo is the argument; it needs no caption beyond naming itself. -->
+      <figure class="relative z-10 mt-5">
+        <Image
+          src={labelledBoard}
+          alt="A consumer unit installed by Domestic Electrician Ltd, every way labelled with the circuit it feeds"
+          widths={[560, 1120, 2048]}
+          sizes="(min-width: 1024px) 34rem, (min-width: 640px) 90vw, 92vw"
+          loading="eager"
+          class="w-full rounded-[3px] border border-white/12 object-cover"
+          style="aspect-ratio: 2048 / 740"
+        />
+        <figcaption class="t-label mt-3 text-bone-soft/70">And one labelled on a real job</figcaption>
+      </figure>
     </div>
   </div>
 </section>
