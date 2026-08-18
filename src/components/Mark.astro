@@ -1,0 +1,38 @@
+---
+interface Props { size?: number; class?: string; tile?: string; glyph?: string }
+const { size = 36, class: className = '', tile = '#B4551F', glyph = '#FFFFFF' } = Astro.props;
+
+/**
+ * Logo mark — the earth symbol.
+ *
+ * Grounded in the trade's own vernacular rather than a bolt or a spark:
+ * the earth symbol is what an electrician actually draws, and it carries
+ * the sell (grounding, safety) rather than decorating it. Four strokes,
+ * so it survives favicon size where a monogram or a loop would mush.
+ *
+ * Bar widths are set to a deliberate 17.2 / 11.2 / 5.2 rather than the
+ * arbitrary standard ratio, and every terminal is rounded, so it reads
+ * as a drawn mark rather than a schematic glyph lifted off a drawing.
+ *
+ * White on copper measures 4.89:1. Copper on navy was tried and rejected
+ * at 2.95:1 — it muddied below about 24px.
+ *
+ * Geometry is mirrored in public/favicon.svg; change both together.
+ */
+---
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 32 32"
+  role="img"
+  aria-label="Domestic Electrician Ltd"
+  class={`shrink-0 ${className}`}
+>
+  <rect width="32" height="32" rx="7" fill={tile}></rect>
+  <g fill={glyph}>
+    <rect x="14.7" y="6" width="2.6" height="9" rx="1.3"></rect>
+    <rect x="7.4" y="14.8" width="17.2" height="2.8" rx="1.4"></rect>
+    <rect x="10.4" y="19" width="11.2" height="2.8" rx="1.4"></rect>
+    <rect x="13.4" y="23.2" width="5.2" height="2.8" rx="1.4"></rect>
+  </g>
+</svg>
