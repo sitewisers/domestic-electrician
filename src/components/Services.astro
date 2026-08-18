@@ -1,0 +1,68 @@
+---
+import { site } from '../data/site';
+
+// Led by the situation the homeowner is already in, not by the trade
+// name for the work. Four they ring about most, then the rest.
+const main = [
+  {
+    trigger: 'When the board keeps tripping',
+    title: 'Fuse board upgrades',
+    body: 'An old board with rewireable fuses, or one with no RCD protection, gets replaced with a modern consumer unit — then tested and certified. If something on the circuits is causing the trips, that gets found first rather than buried behind new kit.',
+  },
+  {
+    trigger: 'When the wiring is past it',
+    title: 'Full and partial rewires',
+    body: 'Whole-house rewires, and partial ones. Plenty of houses only need the circuits that have had it replaced rather than the lot, so it is worth having someone look before you assume the worst.',
+  },
+  {
+    trigger: 'For a sale, a mortgage or a tenancy',
+    title: 'EICRs and remedial work',
+    body: 'An Electrical Installation Condition Report puts the state of your wiring in writing. If it comes back unsatisfactory, the remedial work and the retest are handled here — you are not left ringing round for someone else to finish it.',
+  },
+  {
+    trigger: 'When something has stopped working',
+    title: 'Fault-finding and emergency callouts',
+    body: 'Sockets dead down one side of the house. Lights out in one room. A breaker that will not stay in. Fault-finding is its own job: the point is locating the actual cause, not swapping parts until the symptom goes away.',
+  },
+];
+
+const also = [
+  { title: 'Cookers, ovens and appliances', body: 'Wired in on a circuit rated for what you have actually bought.' },
+  { title: 'Lighting, inside and out', body: 'Indoor lighting, track lighting, and garden lighting wired to survive being outdoors.' },
+  { title: 'Sockets and switches', body: 'New sockets where you need them, and switches moved, added or replaced.' },
+  { title: 'Design, installation and testing', body: 'An installation designed from scratch, put in, then tested and inspected.' },
+];
+---
+<section id="services" class="band bg-bone">
+  <div class="shell">
+    <p class="t-label text-copper">What Lee does</p>
+    <h2 class="t-h2 mt-5 max-w-[18ch] text-ink">Most people ring about one of these four.</h2>
+
+    <div class="mt-12 grid gap-5 md:mt-16 md:grid-cols-2 md:gap-6">
+      {main.map((item) => (
+        <article class="card">
+          <span class="t-label card__trigger">{item.trigger}</span>
+          <h3 class="t-h3 text-ink">{item.title}</h3>
+          <p class="mt-3.5 text-[1.0625rem] text-ink-soft">{item.body}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="mt-14 border-t border-ink/12 pt-10 md:mt-20">
+      <p class="t-label text-ink-soft">And the rest of it</p>
+      <div class="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+        {also.map((item) => (
+          <div>
+            <div class="rule-copper"></div>
+            <h3 class="mt-4 text-[1.0625rem] font-semibold leading-snug text-ink" style="font-family: var(--font-display); font-variation-settings: 'wdth' 96; letter-spacing: -0.01em">{item.title}</h3>
+            <p class="mt-2 text-[0.9375rem] leading-relaxed text-ink-soft">{item.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <p class="t-label mt-14 text-ink-soft/75">
+      Not sure which one you need? Ring {site.owner} on{' '}<a href={site.phoneHref} class="link-underline text-copper">{site.phoneDisplay}</a> and describe what is happening.
+    </p>
+  </div>
+</section>

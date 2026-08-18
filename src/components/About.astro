@@ -1,0 +1,53 @@
+---
+import { site } from '../data/site';
+
+const facts = [
+  { k: 'Trading since', v: site.tradingSince },
+  { k: 'Company', v: 'Limited company' },
+  { k: 'Certification', v: site.certification },
+  { k: 'Covers', v: `${site.town} + approx. ${site.radiusMiles} miles` },
+  { k: 'Work', v: 'Domestic electrical' },
+];
+---
+<section id="about" class="band bg-bone">
+  <div class="shell grid gap-12 lg:grid-cols-[1.35fr_1fr] lg:gap-20">
+    <div>
+      <p class="t-label text-copper">About</p>
+      <h2 class="t-h2 mt-5 max-w-[16ch] text-ink">Who you are actually ringing.</h2>
+
+      <div class="mt-8 max-w-[58ch] space-y-6 text-ink-soft md:text-[1.1875rem]">
+        <p>
+          {site.name} has traded as a limited company in {site.town} since {site.tradingSince}. {site.owner} runs it, and the work is domestic electrical: design, installation,
+          testing and inspection across {site.town} and roughly four miles around it.
+        </p>
+        <p>
+          Electrical work is one of the few jobs in a house where you cannot check the
+          quality yourself once it is finished. The wiring goes back in the wall and you
+          take the rest on trust. So the certificate, the approval standing behind it and
+          the years of trading are not badges — they are the only things you have to go on.
+          They are all on this page, and you can check every one of them.
+        </p>
+      </div>
+
+      <!-- PLACEHOLDER: Lee's own words and a photo of him on a job.
+           Nothing here is invented, so this section stays deliberately
+           short. Two or three sentences in his voice — why he started,
+           what he will not cut corners on — plus one real photograph
+           will do more for this page than anything we could write. -->
+    </div>
+
+    <div class="lg:pt-4">
+      <div class="border-l-2 border-copper pl-6">
+        <p class="t-label text-ink-soft">On the record</p>
+        <dl class="mt-6 space-y-5">
+          {facts.map((fact) => (
+            <div>
+              <dt class="t-label text-ink-soft/70">{fact.k}</dt>
+              <dd class="t-mono mt-1.5 text-[1.0625rem] text-ink">{fact.v}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>

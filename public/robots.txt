@@ -1,0 +1,3 @@
+# Speculative design concept. Not for indexing.
+User-agent: *
+Disallow: /

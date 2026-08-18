@@ -1,0 +1,41 @@
+---
+import { site } from '../data/site';
+import ConsumerUnit from './ConsumerUnit.astro';
+---
+<section id="top" class="relative overflow-hidden bg-graphite">
+  <div class="shell relative grid items-center gap-14 pb-20 pt-12 md:pb-28 md:pt-20 lg:grid-cols-[1fr_1.08fr] lg:gap-14 lg:pb-24 lg:pt-24">
+    <div>
+      <p class="t-label text-copper-bright" style="font-size: clamp(0.5625rem, 2.55vw, 0.6875rem)">
+        {site.town} &middot; {site.certification} &middot; Ltd since {site.tradingSinceYear}
+      </p>
+
+      <h1 class="t-display mt-6 max-w-[14ch] text-bone" style="font-size: clamp(2.85rem, 6.4vw, 4.5rem)">
+        Every circuit accounted for.
+      </h1>
+
+      <p class="mt-7 max-w-[46ch] text-bone-soft md:text-[1.1875rem]">
+        Lee is a NICEIC approved electrician working in {site.town} and about four miles
+        around it. Fuse boards, rewires, EICRs and fault-finding &mdash; and the small jobs
+        most people struggle to get anyone out for.
+      </p>
+
+      <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <a href={site.phoneHref} class="btn btn--copper">Call {site.phoneDisplay}</a>
+        <a href={site.whatsappHref} rel="noopener" class="btn btn--ghost-dark">Message on WhatsApp</a>
+      </div>
+
+      <p class="t-label mt-6 text-bone-soft/70">Emergency callouts covered</p>
+    </div>
+
+    <!-- The panel is the lit object in a dark room. One atmospheric
+         device for the whole page; everything else stays flat. -->
+    <div class="relative isolate">
+      <div
+        class="pointer-events-none absolute -inset-x-16 -inset-y-28 -z-10"
+        style="background: radial-gradient(52% 44% at 50% 50%, rgba(168,90,44,0.46) 0%, rgba(168,90,44,0.13) 46%, transparent 73%)"
+        aria-hidden="true"
+      ></div>
+      <div class="relative z-10"><ConsumerUnit /></div>
+    </div>
+  </div>
+</section>

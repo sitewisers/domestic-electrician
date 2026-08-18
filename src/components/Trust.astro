@@ -1,0 +1,73 @@
+---
+import { site } from '../data/site';
+import Stars from './Stars.astro';
+const { trustpilot, google } = site.ratings;
+
+const ratings = [
+  { source: 'Trustpilot', score: trustpilot.score, note: `Out of 5, from roughly ${trustpilot.approxReviews} reviews.` },
+  { source: 'Google', score: google.score, note: 'Out of 5, across reviews left on Google.' },
+];
+---
+<section id="reviews" class="band bg-graphite">
+  <div class="shell">
+    <p class="t-label text-copper-bright">Checked by other people</p>
+    <h2 class="t-h2 mt-5 max-w-[22ch] text-bone">The ratings, and the approval standing behind them.</h2>
+
+    <div class="mt-12 grid gap-5 md:mt-16 md:gap-6 lg:grid-cols-[1.15fr_1fr]">
+      <div class="stat-panel divide-y" style="border-color: rgba(234,234,226,0.12)">
+        {ratings.map((rating, i) => (
+          <div class={i === 0 ? 'pb-8' : 'border-t border-white/10 pt-8'}>
+            <div class="flex flex-wrap items-end gap-x-7 gap-y-3">
+              <p class="t-display text-bone" style="font-size: clamp(3.4rem, 8vw, 5rem); line-height: 0.8">{rating.score}</p>
+              <div class="pb-1.5">
+                <Stars score={Number(rating.score)} label={`${rating.score} out of 5 on ${rating.source}`} />
+                <p class="t-label mt-3 text-bone">{rating.source}</p>
+              </div>
+            </div>
+            <p class="mt-4 text-[0.9375rem] text-bone-soft">{rating.note}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="stat-panel flex flex-col justify-center" style="border-color: color-mix(in srgb, #4C7A5E 52%, transparent)">
+        <p class="t-label text-green-bright">Certification</p>
+        <p class="t-h3 mt-6 text-bone">{site.certification}</p>
+        <div class="mt-6 space-y-5 text-bone-soft md:text-[1.0625rem]">
+          <p>
+            NICEIC assess electrical contractors against BS 7671, the UK wiring regulations,
+            and re-assess them to keep that approval in place.
+          </p>
+          <p>
+            What it means for you: the work has been checked by somebody other than the
+            person who did it, and the certificates you are handed at the end are worth
+            something.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================
+         REAL REVIEWS GO HERE.
+         Nothing is invented, so nothing renders yet. Once we have
+         the client relationship and 2–3 reviews they are happy for
+         us to quote, drop them in below — real names as published,
+         real wording, no trimming without an ellipsis.
+         Uncomment and repeat the <article> per review.
+
+         <div class="mt-6 grid gap-5 md:grid-cols-3 md:gap-6">
+           <article class="stat-panel">
+             <Stars score={5} label="5 out of 5" />
+             <blockquote class="mt-5 text-[1.0625rem] leading-relaxed text-bone">
+               Review text exactly as published.
+             </blockquote>
+             <figcaption class="t-label mt-5 text-bone-soft">Reviewer name &middot; Trustpilot</figcaption>
+           </article>
+         </div>
+         ========================================================== -->
+
+    <p class="mt-10 max-w-[64ch] text-[0.875rem] leading-relaxed text-bone-soft/60" style="font-family: var(--font-mono)">
+      Aggregate ratings as published on Trustpilot and Google. Review counts move over time,
+      so treat {trustpilot.approxReviews} as approximate.
+    </p>
+  </div>
+</section>

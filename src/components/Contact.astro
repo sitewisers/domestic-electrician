@@ -1,0 +1,51 @@
+---
+import { site } from '../data/site';
+
+// Genuinely useful, and it is what a tradesperson actually asks on the phone.
+const readyList = [
+  'Your postcode.',
+  'What has stopped working, and roughly when it started.',
+  'How old the fuse board is, if you happen to know.',
+  'Whether anything is tripping, and what you were using when it went.',
+];
+---
+<section id="contact" class="band bg-graphite">
+  <div class="shell">
+    <p class="t-label text-copper-bright">Get it looked at</p>
+    <h2 class="t-h2 mt-5 text-bone">Ring {site.owner}.</h2>
+
+    <a
+      href={site.phoneHref}
+      class="t-display mt-8 block text-bone transition-colors hover:text-copper-bright"
+      style="font-size: clamp(2.4rem, 9.5vw, 5.2rem); letter-spacing: -0.04em"
+    >{site.phoneDisplay}</a>
+
+    <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+      <a href={site.whatsappHref} rel="noopener" class="btn btn--copper">Message on WhatsApp</a>
+      <a href={`mailto:${site.email}`} class="btn btn--ghost-dark">{site.email}</a>
+    </div>
+
+    <div class="mt-16 grid gap-12 border-t border-white/10 pt-12 md:grid-cols-2 md:gap-16">
+      <div>
+        <p class="t-label text-bone-soft">Where he works</p>
+        <p class="mt-5 max-w-[40ch] text-bone-soft md:text-[1.1875rem]">
+          {site.town} and roughly four miles around it &mdash; so Titchfield,
+          Stubbington, Portchester, Park Gate, Warsash and the rest of it. If you are not sure
+          whether you are inside that, ring and ask.
+        </p>
+      </div>
+
+      <div>
+        <p class="t-label text-bone-soft">Have this ready when you call</p>
+        <ul class="mt-5 space-y-3.5">
+          {readyList.map((item) => (
+            <li class="flex gap-3.5 text-bone-soft md:text-[1.0625rem]">
+              <span class="mt-2.5 h-px w-4 shrink-0 bg-copper"></span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
