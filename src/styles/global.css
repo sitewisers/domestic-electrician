@@ -1,27 +1,35 @@
 @import "tailwindcss";
 
 /* ============================================================
-   Domestic Electrician Ltd — design tokens
-   Concept: the consumer unit. Order, labelling, nothing left
-   to chance. Dark enclosure, bone wall, copper conductor.
+   Domestic Electrician Ltd — light design system
+
+   Brief: bright, clean, conventional. The site a well-run local
+   trade business actually has. White base, navy ink, copper as
+   the single accent, green reserved for certification cues.
+   Sans throughout. No skeuomorphism.
    ============================================================ */
 
 @theme {
-  --color-graphite: #1C1B18;
-  --color-graphite-raised: #26241F;
-  --color-graphite-deep: #131210;
-  --color-bone: #EAEAE2;
-  --color-bone-shade: #DDDDD3;
-  --color-copper: #A85A2C;
-  --color-copper-bright: #C97440;
-  --color-green: #4C7A5E;
-  --color-green-bright: #6A9C7E;
-  --color-ink: #201F1C;
-  --color-ink-soft: #56534B;
-  --color-bone-soft: #A6A297;
+  /* surfaces */
+  --color-paper: #FFFFFF;
+  --color-mist: #F4F6F9;       /* cool grey-blue section tint, deliberately not a warm cream */
+  --color-mist-deep: #E8ECF2;  /* borders, dividers, inactive fills */
+
+  /* ink */
+  --color-navy: #132A43;       /* headings, nav, footer — 14.4:1 on white */
+  --color-navy-soft: #234163;  /* hover / secondary navy */
+  --color-slate: #4A5A6B;      /* body copy — 7.1:1 on white */
+  --color-slate-light: #7B8896;/* captions, meta */
+
+  /* accents */
+  --color-copper: #B4551F;     /* single accent — 4.9:1 on white, retuned up from the dark build */
+  --color-copper-deep: #96461A;/* hover */
+  --color-copper-wash: #FDF3EC;/* tint fills */
+  --color-certified: #2F6B4F;  /* certification / approval only — 6.4:1 on white */
+  --color-certified-wash: #EDF5F0;
 
   --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
-  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
@@ -29,19 +37,17 @@
 
 html {
   scroll-behavior: smooth;
-  /* clears the sticky header: two rows on phones, one from lg up */
-  scroll-padding-top: 7.5rem;
+  scroll-padding-top: 6rem;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--color-graphite);
-  color: var(--color-ink);
+  background: var(--color-paper);
+  color: var(--color-slate);
   font-family: var(--font-body);
   font-size: 1.0625rem;
-  line-height: 1.72;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
@@ -51,70 +57,79 @@ body {
 ::selection { background: var(--color-copper); color: #fff; }
 
 :focus-visible {
-  outline: 2px solid var(--color-copper-bright);
+  outline: 2px solid var(--color-copper);
   outline-offset: 3px;
-  border-radius: 2px;
+  border-radius: 4px;
 }
+
+img { max-width: 100%; }
 
 /* ---------- type roles ---------- */
 
-.t-display {
+.t-h1 {
   font-family: var(--font-display);
-  font-weight: 900;
-  font-variation-settings: "wdth" 88;
-  letter-spacing: -0.035em;
-  line-height: 0.94;
+  font-weight: 800;
+  font-variation-settings: "wdth" 100;
+  letter-spacing: -0.022em;
+  line-height: 1.06;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  color: var(--color-navy);
   text-wrap: balance;
 }
 
 .t-h2 {
   font-family: var(--font-display);
-  font-weight: 800;
-  font-variation-settings: "wdth" 92;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  font-size: clamp(1.95rem, 5.2vw, 3.3rem);
+  font-weight: 700;
+  font-variation-settings: "wdth" 100;
+  letter-spacing: -0.018em;
+  line-height: 1.12;
+  font-size: clamp(1.75rem, 3.4vw, 2.5rem);
+  color: var(--color-navy);
   text-wrap: balance;
 }
 
 .t-h3 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-variation-settings: "wdth" 96;
-  letter-spacing: -0.018em;
-  line-height: 1.1;
-  font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  font-size: 1.1875rem;
+  color: var(--color-navy);
 }
 
-/* Utility face: engraved breaker-panel labels */
+/* tracked mono, used only for certification-style labels */
 .t-label {
   font-family: var(--font-mono);
   font-weight: 600;
   font-size: 0.6875rem;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
   line-height: 1.5;
 }
 
-.t-mono {
+/* phone numbers: tabular mono digits, the one place mono earns its keep */
+.t-tel {
   font-family: var(--font-mono);
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   font-variant-numeric: tabular-nums;
 }
+
+.t-lead { font-size: 1.125rem; }
+@media (min-width: 768px) { .t-lead { font-size: 1.25rem; } }
 
 /* ---------- layout ---------- */
 
 .shell {
   width: 100%;
-  max-width: 76rem;
+  max-width: 75rem;
   margin-inline: auto;
   padding-inline: 1.25rem;
 }
 
-@media (min-width: 768px) { .shell { padding-inline: 2.5rem; } }
+@media (min-width: 768px) { .shell { padding-inline: 2rem; } }
 
-.band { padding-block: clamp(4rem, 9vw, 7.5rem); }
+.band { padding-block: clamp(3.5rem, 7vw, 6rem); }
 
 /* ---------- buttons ---------- */
 
@@ -122,284 +137,93 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.625rem;
-  font-family: var(--font-mono);
+  gap: 0.5rem;
+  font-family: var(--font-body);
   font-weight: 600;
-  font-size: 0.8125rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 1.0625rem 1.5rem;
-  border-radius: 3px;
-  border: 1px solid transparent;
-  transition: background-color .2s ease, color .2s ease, border-color .2s ease, transform .1s ease;
+  font-size: 1rem;
+  letter-spacing: 0.005em;
+  padding: 0.9375rem 1.5rem;
+  border-radius: 8px;
+  border: 1.5px solid transparent;
+  transition: background-color .18s ease, border-color .18s ease, color .18s ease, box-shadow .18s ease;
   text-align: center;
+  line-height: 1.2;
 }
 
-.btn:active { transform: translateY(1px); }
-
-.btn--copper { background: var(--color-copper); color: #fff; }
-.btn--copper:hover { background: var(--color-copper-bright); }
-
-.btn--ghost-dark {
-  border-color: color-mix(in srgb, var(--color-bone) 28%, transparent);
-  color: var(--color-bone);
+.btn--primary {
+  background: var(--color-copper);
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(19, 42, 67, .12);
 }
-.btn--ghost-dark:hover {
-  border-color: var(--color-bone);
-  background: color-mix(in srgb, var(--color-bone) 8%, transparent);
+.btn--primary:hover { background: var(--color-copper-deep); }
+
+.btn--secondary {
+  background: var(--color-paper);
+  color: var(--color-navy);
+  border-color: var(--color-mist-deep);
+  box-shadow: 0 1px 2px rgba(19, 42, 67, .06);
 }
+.btn--secondary:hover { border-color: var(--color-slate-light); }
 
-/* ============================================================
-   SIGNATURE — the consumer unit
+.btn--onnavy {
+  background: rgba(255, 255, 255, .1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, .3);
+}
+.btn--onnavy:hover { background: rgba(255, 255, 255, .18); border-color: rgba(255, 255, 255, .55); }
 
-   Not four cards. One object: a steel enclosure, a recessed
-   channel the rockers poke up through, and a printed label
-   strip underneath divided way by way. The labels carry the
-   facts a homeowner needs instead of circuit names, and every
-   way is ON.
+/* ---------- cards ---------- */
 
-   Presentational only. Nothing here is a control — the facts
-   are real text and read fine with CSS off.
-   ============================================================ */
-
-.cu {
-  position: relative;
-  background: linear-gradient(176deg, #34322B 0%, #2A2823 40%, #211F1B 100%);
-  border: 1px solid rgba(234, 234, 226, 0.16);
-  border-radius: 6px;
-  padding: 0.6875rem;
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.07) inset,
-    0 40px 70px -34px rgba(0, 0, 0, 0.95),
-    0 3px 8px rgba(0, 0, 0, 0.45);
+.card {
+  background: var(--color-paper);
+  border: 1px solid var(--color-mist-deep);
+  border-radius: 12px;
+  padding: clamp(1.375rem, 2.4vw, 1.875rem);
 }
 
-/* lid seam, where the cover hinges */
-.cu::before {
-  content: "";
-  position: absolute;
-  inset-inline: 0.6875rem;
-  top: 0.3125rem;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.07);
+.card--lift {
+  box-shadow: 0 1px 2px rgba(19, 42, 67, .05), 0 8px 24px -16px rgba(19, 42, 67, .18);
 }
 
-.cu__badge {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.1875rem 0.25rem 0.6875rem;
-  color: var(--color-bone-soft);
-  font-size: 0.5rem;
-  letter-spacing: 0.2em;
-}
-
-.cu__main {
+/* certification pill */
+.pill-cert {
   display: inline-flex;
   align-items: center;
   gap: 0.4375rem;
-  color: var(--color-green-bright);
-  white-space: nowrap;
+  background: var(--color-certified-wash);
+  color: var(--color-certified);
+  border: 1px solid color-mix(in srgb, var(--color-certified) 22%, transparent);
+  border-radius: 999px;
+  padding: 0.3125rem 0.75rem;
 }
 
-.cu__main-led {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: currentColor;
-  box-shadow: 0 0 8px currentColor;
+.link-quiet {
+  color: var(--color-copper);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--color-copper) 40%, transparent);
+  transition: text-decoration-color .18s ease;
+}
+.link-quiet:hover { text-decoration-color: currentColor; }
+
+/* photos */
+.photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
-/* the recessed channel, with the breaker bodies packed along it */
-.cu__channel {
-  position: relative;
-  display: flex;
-  align-items: stretch;
-  background: linear-gradient(180deg, #101010 0%, #191817 60%, #121110 100%);
-  border-radius: 3px 3px 0 0;
-  padding: 0.4375rem 0.375rem 0.875rem;
-  box-shadow:
-    0 4px 9px rgba(0, 0, 0, 0.65) inset,
-    0 -1px 0 rgba(255, 255, 255, 0.05);
-}
-
-/* busbar running the length of the rail, under the ways */
-.cu__channel::after {
-  content: "";
-  position: absolute;
-  inset-inline: 0.75rem;
-  bottom: 0.375rem;
-  height: 1px;
-  background: var(--color-copper);
-  opacity: 0.4;
-}
-
-/* one breaker body, packed against its neighbours */
-.way-toggle {
-  --way-accent: var(--color-copper-bright);
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex: 1 1 0;
-  margin-inline: 1px;
-  padding: 0.5rem 0.25rem 0.5rem 0.1875rem;
-  border-radius: 2px;
-  background: linear-gradient(180deg, #302E28 0%, #262420 62%, #201E1B 100%);
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.07) inset,
-    0 2px 5px rgba(0, 0, 0, 0.55);
-}
-
-.way-toggle--cert { --way-accent: var(--color-green-bright); }
-
-.way__well {
-  position: relative;
-  width: 1.875rem;
-  height: 2.875rem;
-  border-radius: 2px;
-  background: linear-gradient(180deg, #0B0A09 0%, #171614 100%);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.7), 0 1px 0 rgba(255, 255, 255, 0.08);
+.photo-frame {
   overflow: hidden;
-}
-
-.way__toggle {
-  position: absolute;
-  inset-inline: 3px;
-  top: 3px;
-  height: 1.4375rem;
-  border-radius: 2px 2px 3px 3px;
-  background: linear-gradient(180deg, #F5F3EC 0%, #DBD8CE 52%, #B5B2A7 100%);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 3px 5px rgba(0, 0, 0, 0.65);
-  transform: translateY(0);
-  transition: transform .3s cubic-bezier(.2, 1.45, .4, 1);
-  transition-delay: calc(var(--i, 0) * 130ms);
-}
-
-.way__toggle::before {
-  content: "";
-  position: absolute;
-  inset-inline: 4px;
-  top: 4px;
-  height: 3px;
-  border-radius: 2px;
-  background: var(--way-accent);
-  opacity: 1;
-  transition: opacity .2s ease;
-  transition-delay: calc(var(--i, 0) * 130ms + 90ms);
-}
-
-/* JS present but the panel has not come into view: rockers sit off */
-html.js .cu:not(.cu--live) .way__toggle { transform: translateY(1.4375rem); }
-html.js .cu:not(.cu--live) .way__toggle::before { opacity: 0; }
-
-/* the printed label strip under the channel */
-.cu__strip {
-  display: flex;
-  align-items: stretch;
-  background: linear-gradient(180deg, #F7F6F0 0%, #E7E6DE 100%);
-  border-radius: 0 0 3px 3px;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.32) inset;
-}
-
-.way-label {
-  flex: 1 1 0;
-  min-width: 0;
-  padding: 0.5rem 0.4375rem 0.5625rem;
-  border-left: 1px solid rgba(32, 31, 28, 0.15);
-  border-top: 2px solid var(--way-accent, var(--color-copper));
-}
-
-.way-label:first-child { border-left: 0; }
-.way-label--cert { --way-accent: var(--color-green); }
-
-.way-label__text {
-  display: block;
-  font-family: var(--font-mono);
-  font-weight: 600;
-  font-size: 0.5625rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-ink);
-  line-height: 1.45;
-}
-
-.way-label__note {
-  display: block;
-  font-family: var(--font-mono);
-  font-weight: 500;
-  font-size: 0.5rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(32, 31, 28, 0.5);
-  margin-top: 0.1875rem;
-}
-
-@media (min-width: 420px) {
-  .way-label { padding-inline: 0.625rem; }
-  .way-label__text { font-size: 0.625rem; letter-spacing: 0.08em; }
-}
-
-@media (min-width: 1024px) {
-  .cu { padding: 0.875rem; }
-  .cu::before { inset-inline: 0.875rem; top: 0.4375rem; }
-  .cu__channel { padding: 0.5rem 0.4375rem 1rem; }
-  .way-toggle { padding: 0.625rem 0.375rem 0.625rem 0.3125rem; }
-  .way__well { width: 2rem; height: 3.125rem; }
-  .way__toggle { height: 1.5625rem; }
-  html.js .cu:not(.cu--live) .way__toggle { transform: translateY(1.5625rem); }
-  .way-label { padding: 0.625rem 0.75rem 0.6875rem; }
-  .way-label__text { font-size: 0.6875rem; }
+  border-radius: 12px;
+  background: var(--color-mist);
+  border: 1px solid var(--color-mist-deep);
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .way__toggle,
-  .way__toggle::before {
-    transition: none !important;
-    transition-delay: 0ms !important;
-  }
-  html.js .cu:not(.cu--live) .way__toggle { transform: translateY(0) !important; }
-  html.js .cu:not(.cu--live) .way__toggle::before { opacity: 1; }
+  * { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
-
-/* ============================================================
-   sections
-   ============================================================ */
-
-.card {
-  position: relative;
-  background: #F3F2EC;
-  border: 1px solid rgba(32, 31, 28, 0.09);
-  border-radius: 4px;
-  padding: clamp(1.5rem, 3vw, 2.125rem);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 12px 28px -22px rgba(32, 31, 28, 0.5);
-}
-
-.card__trigger {
-  color: var(--color-copper);
-  display: block;
-  margin-bottom: 0.875rem;
-}
-
-.rule-copper {
-  height: 2px;
-  background: var(--color-copper);
-  width: 2.25rem;
-}
-
-.stat-panel {
-  background: var(--color-graphite-raised);
-  border: 1px solid rgba(234, 234, 226, 0.12);
-  border-radius: 4px;
-  padding: clamp(1.5rem, 3vw, 2rem);
-}
-
-.link-underline {
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
-  text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
-  transition: text-decoration-color .2s ease;
-}
-.link-underline:hover { text-decoration-color: currentColor; }

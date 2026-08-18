@@ -1,19 +1,19 @@
 ---
 interface Props { score: number; label: string }
 const { score, label } = Astro.props;
-// Filled to the actual score, not rounded up. 4.9 shows as 4.9.
+// Filled to the actual score, not rounded up.
 const pct = Math.max(0, Math.min(100, (score / 5) * 100));
-const star = 'M5 0l1.3 3.2L9.7 3.6 7.2 5.9l.8 3.4L5 7.5 2 9.3l.8-3.4L.3 3.6l3.4-.4z';
+const star = 'M8 0l2.1 5.1L15.6 5.6l-4 3.6 1.2 5.4L8 11.9 3.2 14.6l1.2-5.4-4-3.6L5.9 5.1z';
 ---
 <span class="relative inline-block leading-none" role="img" aria-label={label}>
-  <span class="flex gap-1">
+  <span class="flex gap-0.5">
     {[0, 1, 2, 3, 4].map(() => (
-      <svg width="17" height="17" viewBox="0 0 10 10" aria-hidden="true"><path d={star} fill="rgba(234,234,226,0.18)"></path></svg>
+      <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"><path d={star} fill="#D8DEE6"></path></svg>
     ))}
   </span>
-  <span class="absolute inset-0 flex gap-1 overflow-hidden" style={`width:${pct}%`} aria-hidden="true">
+  <span class="absolute inset-0 flex gap-0.5 overflow-hidden" style={`width:${pct}%`} aria-hidden="true">
     {[0, 1, 2, 3, 4].map(() => (
-      <svg width="17" height="17" viewBox="0 0 10 10" class="shrink-0"><path d={star} fill="#C97440"></path></svg>
+      <svg width="15" height="15" viewBox="0 0 16 16" class="shrink-0"><path d={star} fill="#B4551F"></path></svg>
     ))}
   </span>
 </span>

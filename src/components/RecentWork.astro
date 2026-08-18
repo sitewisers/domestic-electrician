@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+import labelledBoard from '../assets/photos/work-labelled-board.jpg';
+import floodlights from '../assets/photos/work-floodlights.jpg';
+import gardenRoom from '../assets/photos/work-garden-room.jpg';
+import loungeSockets from '../assets/photos/work-lounge-sockets.jpg';
+import panelHeater from '../assets/photos/work-panel-heater.jpg';
+import socketTest from '../assets/photos/work-socket-test.jpg';
+
+/**
+ * A gallery, not a set of service illustrations. Each photo is real
+ * completed work from the company's own records, so the captions
+ * describe what is in the frame and claim nothing beyond it.
+ */
+const shots = [
+  { src: labelledBoard, alt: 'A consumer unit with every way labelled with the circuit it feeds', caption: 'Consumer unit, every way labelled', wide: true },
+  { src: floodlights, alt: 'Twin LED floodlights fitted under the eaves of a timber-framed porch', caption: 'Floodlights under the eaves' },
+  { src: gardenRoom, alt: 'A covered garden room lit by downlights with an infrared heater fitted overhead', caption: 'Garden room lighting and heating' },
+  { src: loungeSockets, alt: 'A living room with a wall-mounted television, sockets and dimmer switches', caption: 'Living room sockets and switches' },
+  { src: panelHeater, alt: 'A panel heater wired in beside a doorway, tools laid out on a dust sheet', caption: 'Panel heater wired in' },
+  { src: socketTest, alt: 'A socket being tested with a multifunction tester during an inspection', caption: 'Socket testing during an inspection' },
+];
+---
+<section class="band bg-mist" aria-labelledby="work-heading">
+  <div class="shell">
+    <p class="t-label text-copper">Recent work</p>
+    <h2 id="work-heading" class="t-h2 mt-4 max-w-[24ch]">Some of what the last few jobs looked like.</h2>
+
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-3">
+      {shots.map((shot) => (
+        <figure class={shot.wide ? 'sm:col-span-2' : ''}>
+          <div class="photo-frame bg-paper">
+            <Image
+              src={shot.src}
+              alt={shot.alt}
+              widths={[480, 900]}
+              sizes="(min-width: 1024px) 24rem, (min-width: 640px) 46vw, 92vw"
+              loading="lazy"
+              class="photo"
+              style={shot.wide ? 'aspect-ratio: 16 / 9' : 'aspect-ratio: 4 / 3'}
+            />
+          </div>
+          <figcaption class="mt-2.5 text-[0.875rem] text-slate-light">{shot.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <p class="mt-8 text-[0.875rem] text-slate-light">
+      Photographs of the company&rsquo;s own completed work. No stock photography.
+    </p>
+  </div>
+</section>

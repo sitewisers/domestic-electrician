@@ -1,59 +1,41 @@
 ---
 import { Image } from 'astro:assets';
 import { site } from '../data/site';
-import ConsumerUnit from './ConsumerUnit.astro';
-import labelledBoard from '../assets/photos/consumer-unit-labelled.jpg';
+import heroPhoto from '../assets/photos/hero-exterior-lights.jpg';
 ---
-<section id="top" class="relative overflow-hidden bg-graphite">
-  <div class="shell relative grid items-center gap-14 pb-20 pt-12 md:pb-28 md:pt-20 lg:grid-cols-[1fr_1.08fr] lg:gap-14 lg:pb-24 lg:pt-24">
+<section id="top" class="bg-paper">
+  <div class="shell grid items-center gap-10 pb-12 pt-10 md:pb-16 md:pt-14 lg:grid-cols-[1fr_1.1fr] lg:gap-16 lg:pb-20 lg:pt-16">
     <div>
-      <p class="t-label text-copper-bright" style="font-size: clamp(0.5625rem, 2.55vw, 0.6875rem)">
+      <p class="t-label text-copper">
         {site.town} &middot; {site.certification} &middot; Ltd since {site.tradingSinceYear}
       </p>
 
-      <h1 class="t-display mt-6 max-w-[14ch] text-bone" style="font-size: clamp(2.85rem, 6.4vw, 4.5rem)">
-        Every circuit accounted for.
-      </h1>
+      <h1 class="t-h1 mt-5 max-w-[18ch]">Every circuit accounted for.</h1>
 
-      <p class="mt-7 max-w-[46ch] text-bone-soft md:text-[1.1875rem]">
+      <p class="t-lead mt-6 max-w-[46ch] text-slate">
         Lee is a NICEIC approved electrician working in {site.town} and about four miles
         around it. Fuse boards, rewires, EICRs and fault-finding &mdash; and the small jobs
         most people struggle to get anyone out for.
       </p>
 
-      <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <a href={site.phoneHref} class="btn btn--copper">Call {site.phoneDisplay}</a>
-        <a href={site.whatsappHref} rel="noopener" class="btn btn--ghost-dark">Message on WhatsApp</a>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <a href={site.phoneHref} class="btn btn--primary">Call {site.phoneDisplay}</a>
+        <a href={site.whatsappHref} rel="noopener" class="btn btn--secondary">Message on WhatsApp</a>
       </div>
 
-      <p class="t-label mt-6 text-bone-soft/70">Emergency callouts covered</p>
+      <p class="mt-5 text-[0.9375rem] text-slate-light">Emergency callouts covered.</p>
     </div>
 
-    <!-- The panel is the lit object in a dark room. One atmospheric
-         device for the whole page; everything else stays flat. -->
-    <div class="relative isolate">
-      <div
-        class="pointer-events-none absolute -inset-x-16 -inset-y-28 -z-10"
-        style="background: radial-gradient(52% 44% at 50% 50%, rgba(168,90,44,0.46) 0%, rgba(168,90,44,0.13) 46%, transparent 73%)"
-        aria-hidden="true"
-      ></div>
-      <div class="relative z-10"><ConsumerUnit /></div>
-
-      <!-- The graphic above names trust facts as circuit labels. This is a
-           board the company actually installed, labelled the same way. The
-           photo is the argument; it needs no caption beyond naming itself. -->
-      <figure class="relative z-10 mt-5">
-        <Image
-          src={labelledBoard}
-          alt="A consumer unit installed by Domestic Electrician Ltd, every way labelled with the circuit it feeds"
-          widths={[560, 1120, 2048]}
-          sizes="(min-width: 1024px) 34rem, (min-width: 640px) 90vw, 92vw"
-          loading="eager"
-          class="w-full rounded-[3px] border border-white/12 object-cover"
-          style="aspect-ratio: 2048 / 740"
-        />
-        <figcaption class="t-label mt-3 text-bone-soft/70">And one labelled on a real job</figcaption>
-      </figure>
+    <div class="photo-frame">
+      <Image
+        src={heroPhoto}
+        alt="Outdoor wall lights fitted to the front of a house in Fareham, lit at dusk"
+        widths={[700, 1200]}
+        sizes="(min-width: 1024px) 38rem, 92vw"
+        loading="eager"
+        class="photo"
+        style="aspect-ratio: 1200 / 710"
+      />
     </div>
   </div>
 </section>
