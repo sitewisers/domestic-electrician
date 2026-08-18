@@ -112,6 +112,8 @@ img { max-width: 100%; }
   font-family: var(--font-mono);
   font-weight: 600;
   letter-spacing: 0.01em;
+  /* mono spaces run wide; pull the group gap in so the number reads as one unit */
+  word-spacing: -0.28em;
   font-variant-numeric: tabular-nums;
 }
 

@@ -13,7 +13,7 @@ import socketTest from '../assets/photos/work-socket-test.jpg';
  * describe what is in the frame and claim nothing beyond it.
  */
 const shots = [
-  { src: labelledBoard, alt: 'A consumer unit with every way labelled with the circuit it feeds', caption: 'Consumer unit, every way labelled', wide: true },
+  { src: labelledBoard, alt: 'A consumer unit with every way labelled with the circuit it feeds', caption: 'Consumer unit, every way labelled' },
   { src: floodlights, alt: 'Twin LED floodlights fitted under the eaves of a timber-framed porch', caption: 'Floodlights under the eaves' },
   { src: gardenRoom, alt: 'A covered garden room lit by downlights with an infrared heater fitted overhead', caption: 'Garden room lighting and heating' },
   { src: loungeSockets, alt: 'A living room with a wall-mounted television, sockets and dimmer switches', caption: 'Living room sockets and switches' },
@@ -28,7 +28,7 @@ const shots = [
 
     <div class="mt-10 grid gap-4 sm:grid-cols-2 md:gap-5 lg:grid-cols-3">
       {shots.map((shot) => (
-        <figure class={shot.wide ? 'sm:col-span-2' : ''}>
+        <figure>
           <div class="photo-frame bg-paper">
             <Image
               src={shot.src}
@@ -37,7 +37,7 @@ const shots = [
               sizes="(min-width: 1024px) 24rem, (min-width: 640px) 46vw, 92vw"
               loading="lazy"
               class="photo"
-              style={shot.wide ? 'aspect-ratio: 16 / 9' : 'aspect-ratio: 4 / 3'}
+              style="aspect-ratio: 16 / 10"
             />
           </div>
           <figcaption class="mt-2.5 text-[0.875rem] text-slate-light">{shot.caption}</figcaption>
