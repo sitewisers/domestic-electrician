@@ -5,3 +5,6 @@ dist/
 
 # raw Facebook downloads; cropped versions live in src/assets/photos
 photos-raw/
+
+# sitewisers CLI audit history; local only, this repo is served by GitHub Pages
+.sitewisers/
